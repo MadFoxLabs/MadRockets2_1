@@ -1,0 +1,193 @@
+[gd_scene load_steps=15 format=3 uid="uid://c1rttq7k1rqj"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_dopq0"]
+[ext_resource type="Texture2D" uid="uid://dujisljk4ldmo" path="res://assets/Anvil.png" id="1_iq3it"]
+[ext_resource type="Texture2D" uid="uid://dlrbrmm4vagie" path="res://assets/my_tilemap.png" id="1_vfdab"]
+[ext_resource type="Script" path="res://scripts/constant_speed.gd" id="2_2yyup"]
+[ext_resource type="Texture2D" uid="uid://1j1hsgsoi3ae" path="res://assets/Feather.png" id="2_apn52"]
+[ext_resource type="Script" path="res://scripts/Anvil.gd" id="6_6j6f3"]
+
+[sub_resource type="Gradient" id="Gradient_p14e7"]
+colors = PackedColorArray(0.329412, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0j02h"]
+gradient = SubResource("Gradient_p14e7")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0.0202899)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gao30"]
+texture = ExtResource("1_vfdab")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+3:3/0 = 0
+3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:3/0/physics_layer_0/angular_velocity = 0.0
+4:3/0 = 0
+4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:3/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_o33i2"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_gao30")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7ob3"]
+size = Vector2(55, 32)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8rum6"]
+radius = 11.4015
+height = 69.6481
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wijgw"]
+size = Vector2(55, 32)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1foos"]
+height = 72.7478
+
+[node name="World" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_dopq0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1000, 1084.5)
+scale = Vector2(61.7188, 44.2656)
+texture = SubResource("GradientTexture2D_0j02h")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_o33i2")
+format = 2
+layer_0/tile_data = PackedInt32Array(6422526, 65536, 0, 6488062, 65536, 1, 6422527, 65536, 0, 6488063, 65536, 1, 6356992, 65536, 0, 6422528, 65536, 1, 6356993, 65536, 0, 6422529, 65536, 1, 6356994, 65536, 0, 6422530, 65536, 1, 6356995, 65536, 0, 6422531, 65536, 1, 6356996, 65536, 0, 6422532, 65536, 1, 6356997, 65536, 0, 6422533, 65536, 1, 6356998, 65536, 0, 6422534, 65536, 1, 6356999, 65536, 0, 6422535, 65536, 1, 6357000, 65536, 0, 6422536, 65536, 1, 6357001, 65536, 0, 6422537, 65536, 1, 6357002, 65536, 0, 6422538, 65536, 1, 6357003, 65536, 0, 6422539, 65536, 1, 6357004, 65536, 0, 6422540, 65536, 1, 6357005, 65536, 0, 6422541, 65536, 1, 6357006, 65536, 0, 6422542, 65536, 1, 6357007, 65536, 0, 6422543, 65536, 1, 6357008, 65536, 0, 6422544, 65536, 1, 6357009, 65536, 0, 6422545, 65536, 1, 6357010, 65536, 0, 6422546, 65536, 1, 6357011, 65536, 0, 6422547, 65536, 1, 6357012, 65536, 0, 6422548, 65536, 1, 6357017, 65536, 0, 6422553, 65536, 1, 6357018, 65536, 0, 6422554, 65536, 1, 6357019, 65536, 0, 6422555, 65536, 1, 6357016, 65536, 0, 6422552, 65536, 1, 6357015, 65536, 0, 6422551, 65536, 1, 6357014, 65536, 0, 6422550, 65536, 1, 6357013, 65536, 0, 6422549, 65536, 1, 6357020, 65536, 0, 6422556, 65536, 1, 6357021, 65536, 0, 6422557, 65536, 1, 6357022, 65536, 0, 6422558, 65536, 1, 6357023, 65536, 0, 6422559, 65536, 1, 6357024, 65536, 0, 6422560, 65536, 1, 6357025, 65536, 0, 6422561, 65536, 1, 6357026, 65536, 0, 6422562, 65536, 1, 6357027, 65536, 0, 6422563, 65536, 1, 6357028, 65536, 0, 6422564, 65536, 1, 6357029, 65536, 0, 6422565, 65536, 1, 6357030, 65536, 0, 6422566, 65536, 1, 6357031, 65536, 0, 6422567, 65536, 1, 6357032, 65536, 0, 6422568, 65536, 1, 6357033, 65536, 0, 6422569, 65536, 1, 6357034, 65536, 0, 6422570, 65536, 1, 6357035, 65536, 0, 6422571, 65536, 1, 6357036, 65536, 0, 6422572, 65536, 1, 6357037, 65536, 0, 6422573, 65536, 1, 6357038, 65536, 0, 6422574, 65536, 1, 6357039, 65536, 0, 6422575, 65536, 1, 6357040, 65536, 0, 6422576, 65536, 1, 6357041, 65536, 0, 6422577, 65536, 1, 6357042, 65536, 0, 6422578, 65536, 1, 6357043, 65536, 0, 6422579, 65536, 1, 6357044, 65536, 0, 6422580, 65536, 1, 6357045, 65536, 0, 6422581, 65536, 1, 6357046, 65536, 0, 6422582, 65536, 1, 6357047, 65536, 0, 6422583, 65536, 1, 6357048, 65536, 0, 6422584, 65536, 1, 6357049, 65536, 0, 6422585, 65536, 1, 6357050, 65536, 0, 6422586, 65536, 1, 6357051, 65536, 0, 6422587, 65536, 1, 6357052, 65536, 0, 6422588, 65536, 1, 6357053, 65536, 0, 6422589, 65536, 1, 6357054, 65536, 0, 6422590, 65536, 1, 6357055, 65536, 0, 6422591, 65536, 1, 6357056, 65536, 0, 6422592, 65536, 1, 6357057, 65536, 0, 6422593, 65536, 1, 6357058, 65536, 0, 6422594, 65536, 1, 6357059, 65536, 0, 6422595, 65536, 1, 6357060, 65536, 0, 6422596, 65536, 1, 6357061, 65536, 0, 6422597, 65536, 1, 6357062, 65536, 0, 6422598, 65536, 1, 6357063, 65536, 0, 6422599, 65536, 1, 6357065, 65536, 0, 6422601, 65536, 1, 6357064, 65536, 0, 6422600, 65536, 1, 6357066, 65536, 0, 6422602, 65536, 1, 6357067, 65536, 0, 6422603, 65536, 1, 6357068, 65536, 0, 6422604, 65536, 1, 6357069, 65536, 0, 6422605, 65536, 1, 6357070, 65536, 0, 6422606, 65536, 1, 6422525, 65536, 0, 6488061, 65536, 1, 6422524, 65536, 0, 6488060, 65536, 1, 6422523, 65536, 0, 6488059, 65536, 1, 6422522, 65536, 0, 6488058, 65536, 1)
+
+[node name="Objects" type="Node2D" parent="."]
+texture_filter = 1
+
+[node name="Speed" type="Node2D" parent="Objects"]
+
+[node name="Anvil" type="CharacterBody2D" parent="Objects/Speed"]
+position = Vector2(400, 60)
+script = ExtResource("2_2yyup")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Objects/Speed/Anvil"]
+texture = ExtResource("1_iq3it")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Speed/Anvil"]
+position = Vector2(-0.5, 6)
+shape = SubResource("RectangleShape2D_n7ob3")
+
+[node name="CameraSpeed" type="Camera2D" parent="Objects/Speed/Anvil"]
+position = Vector2(-300, 0)
+
+[node name="Feather" type="CharacterBody2D" parent="Objects/Speed"]
+position = Vector2(500, 60)
+script = ExtResource("2_2yyup")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Objects/Speed/Feather"]
+texture = ExtResource("2_apn52")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Speed/Feather"]
+position = Vector2(-5, -2)
+rotation = 0.902392
+shape = SubResource("CapsuleShape2D_8rum6")
+
+[node name="Gravity" type="Node2D" parent="Objects"]
+
+[node name="Anvil" type="RigidBody2D" parent="Objects/Gravity"]
+position = Vector2(100, 60)
+mass = 20.0
+can_sleep = false
+script = ExtResource("6_6j6f3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Objects/Gravity/Anvil"]
+texture = ExtResource("1_iq3it")
+
+[node name="CameraGravity" type="Camera2D" parent="Objects/Gravity/Anvil"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Gravity/Anvil"]
+position = Vector2(-0.5, 6)
+shape = SubResource("RectangleShape2D_wijgw")
+
+[node name="Feather" type="RigidBody2D" parent="Objects/Gravity"]
+position = Vector2(200, 60)
+mass = 0.01
+can_sleep = false
+script = ExtResource("6_6j6f3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Objects/Gravity/Feather"]
+texture = ExtResource("2_apn52")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Gravity/Feather"]
+position = Vector2(-4, -3)
+rotation = 0.923148
+shape = SubResource("CapsuleShape2D_1foos")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 983.0
+offset_top = 27.0
+offset_right = 1112.0
+offset_bottom = 163.0
+
+[node name="Button1" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Constant Speed"
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Gravity"
+
+[node name="Button4" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Speed + Gravity"
+
+[node name="Button3" type="CheckButton" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.317647, 0.317647, 0.317647, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+theme_override_colors/font_focus_color = Color(0.772549, 0.772549, 0.772549, 1)
+text = "Air"
+
+[node name="Button5" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[connection signal="button_up" from="CanvasLayer/VBoxContainer/Button1" to="." method="_on_button_1_button_up"]
+[connection signal="button_up" from="CanvasLayer/VBoxContainer/Button2" to="." method="_on_button_2_button_up"]
+[connection signal="button_up" from="CanvasLayer/VBoxContainer/Button4" to="." method="_on_button_4_button_up"]
+[connection signal="button_up" from="CanvasLayer/VBoxContainer/Button3" to="." method="_on_button_3_button_up"]
+[connection signal="toggled" from="CanvasLayer/VBoxContainer/Button3" to="." method="_on_button_3_toggled"]
+[connection signal="button_up" from="CanvasLayer/VBoxContainer/Button5" to="." method="_on_button_5_button_up"]
